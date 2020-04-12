@@ -8,6 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+/**
+ * The Controller class for the Orders Window
+ * @author Michael Loh and Varun Vasudevan
+ *
+ */
 public class OrdersController {
 
 	public Button back;

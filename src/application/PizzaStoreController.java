@@ -20,6 +20,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * The controller class for the Pizza Store UI.
+ * @author Michael Loh and Varun Vasudevan
+ *
+ */
 public class PizzaStoreController {
 	
 	public ComboBox<String> pizza;
@@ -121,10 +126,6 @@ public class PizzaStoreController {
 		showImage();
 	}
 	
-	private void selectToppings() {
-		
-	}
-	
 	private void disableToppings() {
 		String pizzaType = pizza.getSelectionModel().getSelectedItem(); 
 		
@@ -163,7 +164,7 @@ public class PizzaStoreController {
 	
 	public void showOrder() {
 		if(newStage != null && newStage.isShowing()) {
-			newStage.toFront();;
+			newStage.toFront();
 			return;
 		}
 		try {
@@ -180,6 +181,11 @@ public class PizzaStoreController {
 	}
 	
 	public void addToOrder() {
+		if(newStage != null && newStage.isShowing()) {
+			textArea.appendText("Cannot add: Cannot add order when \"Show Order\" is open\n");
+			return;
+		}
+		
 		String pizzaType = pizza.getSelectionModel().getSelectedItem();
 		String pizzaSize = size.getSelectionModel().getSelectedItem();
 		

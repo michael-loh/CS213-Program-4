@@ -6,7 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
-
+/**
+ * This starts the program
+ * @author Michael Loh and Varun Vasudevan
+ *
+ */
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
