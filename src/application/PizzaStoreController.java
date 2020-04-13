@@ -64,6 +64,9 @@ public class PizzaStoreController {
 	private final int DELUXE = 2;
 	private final int HAWAIIAN = 3;
 	
+	/**
+	 * This method loads in the images, sets up the combo boxes, and initializes a Pizza List
+	 */
 	public void initialize() {
 		File f1 = new File("src/images/BYO.jpg");
 		File f2 = new File("src/images/Deluxe.jpg");
@@ -89,6 +92,9 @@ public class PizzaStoreController {
 		
 	}
 	
+	/**
+	 * This method moves a topping from the toppings ListView to the selectedToppings ListView
+	 */
 	public void addTopping() {
 		String topping = (String) toppings.getSelectionModel().getSelectedItem();
 		if(topping == null) {
@@ -102,6 +108,9 @@ public class PizzaStoreController {
 		toppings.getSelectionModel().clearSelection();
 	}
 	
+	/**
+	 * This method removes a topping from the selectedToppings ListView and moves it to the toppings ListView
+	 */
 	public void removeTopping() {
 		String topping = (String) selectedToppings.getSelectionModel().getSelectedItem();
 		if(topping == null) {
@@ -115,17 +124,26 @@ public class PizzaStoreController {
 		selectedToppings.getSelectionModel().clearSelection();
 	}
 	
+	/**
+	 * This method resets the two ListViews
+	 */
 	public void clearSelection() {
 		String[] emptyList = {};
 		selectedToppings.setItems(FXCollections.observableArrayList(emptyList));
 		toppings.setItems(FXCollections.observableArrayList(toppingTypes));
 	}
 	
+	/**
+	 * This method disables toppings when BuildYourOwn pizza is not selected, and it displays the correct image of a pizza
+	 */
 	public void selectPizza() {
 		disableToppings();
 		showImage();
 	}
 	
+	/**
+	 * This method disables the selection of toppings
+	 */
 	private void disableToppings() {
 		String pizzaType = pizza.getSelectionModel().getSelectedItem(); 
 		
@@ -146,6 +164,9 @@ public class PizzaStoreController {
 		}
 	}
 	
+	/**
+	 * This method shows an image corresponding to its pizza.
+	 */
 	private void showImage() {
 		String pizzaType = pizza.getSelectionModel().getSelectedItem();
 		
@@ -162,6 +183,9 @@ public class PizzaStoreController {
 		}
 	}
 	
+	/**
+	 * This method opens a new scene that displays the pizzas in the current pizza list.
+	 */
 	public void showOrder() {
 		if(newStage != null && newStage.isShowing()) {
 			newStage.toFront();
@@ -180,6 +204,9 @@ public class PizzaStoreController {
 		}
 	}
 	
+	/**
+	 * This button adds a pizza to the pizza list.
+	 */
 	public void addToOrder() {
 		if(newStage != null && newStage.isShowing()) {
 			textArea.appendText("Cannot add: Cannot add order when \"Show Order\" is open\n");
@@ -220,6 +247,9 @@ public class PizzaStoreController {
 		
 	}
 	
+	/**
+	 * This method resets the UI to its initial state
+	 */
 	private void resetUI() {
 		pizza.getSelectionModel().select(0);
 		size.getSelectionModel().select(0);

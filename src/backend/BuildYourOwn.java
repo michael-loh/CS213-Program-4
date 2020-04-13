@@ -14,6 +14,12 @@ public class BuildYourOwn extends Pizza{
 	private final int MEDIUM = 7;
 	private final int LARGE = 9;
 
+	/**
+	 * This is the constructor
+	 * @param style is the style type of the pizza
+	 * @param size specifies the size of the pizza
+	 * @param toppings is a list containing the toppings of the pizza
+	 */
 	public BuildYourOwn(String style, String size, ArrayList<String> toppings) {
 		super(style,size,toppings);
 
